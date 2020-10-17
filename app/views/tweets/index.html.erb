@@ -5,6 +5,9 @@
         <span><%= image_tag 'arrow_top.png' %></span>
         <ul class="more_list">
           <li>
+            <%= link_to '詳細', "/tweets/#{tweet.id}", method: :get %>
+          </li>
+          <li>
             <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
           </li>
           <li>
