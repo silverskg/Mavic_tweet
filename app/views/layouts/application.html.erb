@@ -28,7 +28,14 @@
         <h1 class="grid-6"><a href="/">MavicTweet</a></h1>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }  %>
+            <span><%= current_user.nickname %>
+              <ul class="user__info">
+                <li>
+                  <%= link_to "マイページ", "/users/#{current_user.id}" %>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }  %>
+                </li>
+              </ul>
+            </span>
             <%= link_to "投稿する", "/tweets/new", class: "post" %>
           </div>
         <% else %>
