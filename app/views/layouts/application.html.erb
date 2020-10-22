@@ -27,8 +27,8 @@
       <div class="header__bar row">
         <h1 class="grid-6"><a href="/">MavicTweet</a></h1>
         <% if user_signed_in? %>
-          <div class="user_nav gird-6">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <div class="user_nav grid-6">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }  %>
             <%= link_to "投稿する", "/tweets/new", class: "post" %>
           </div>
         <% else %>
