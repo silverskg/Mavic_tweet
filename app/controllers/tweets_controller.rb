@@ -16,8 +16,8 @@ class TweetsController < ApplicationController
   end
 
   def show
-    # binding.pry
-    # @tweet = Tweet.find(params[:id])
+    @comment =Comment.new
+    @comments = @tweet.comments.includes(:user)
   end
 
   def edit
