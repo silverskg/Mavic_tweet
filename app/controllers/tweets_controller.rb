@@ -22,7 +22,7 @@ class TweetsController < ApplicationController
 
   def search
     # binding.pry
-    @tweets = Tweet.search(params[:keyword])
+    @tweets = Tweet.search(params[:keyword]).page(params[:page]).per(2)
   end
 
   def edit
