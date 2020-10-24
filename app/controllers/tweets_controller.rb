@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:edit, :show]
-  before_action :movie_to_index , except: [:index, :show]
+  before_action :movie_to_index , except: [:index, :show, :search]
 
   def index
     @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(2)
@@ -11,13 +11,18 @@ class TweetsController < ApplicationController
   end
 
   def create
-    # binding.pry
     Tweet.create(tweet_params)
   end
 
   def show
+    
     @comment =Comment.new
     @comments = @tweet.comments.includes(:user)
+  end
+
+  def search
+    # binding.pry
+    @tweets = Tweet.search(params[:keyword]).page(params[:page]).per(2)
   end
 
   def edit
@@ -40,6 +45,7 @@ class TweetsController < ApplicationController
   end
 
   def set_tweet
+    # binding.pry
     @tweet = Tweet.find(params[:id])
   end
 
