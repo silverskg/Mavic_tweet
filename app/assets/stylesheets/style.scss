@@ -210,6 +210,13 @@ header.header {
     right: 0;
   }
 }
+.top.text-center{
+  background-image:url("Photo_6553774_DJI_174_jpg_4711006_0_20201027123954_photo_original.JPG");
+  background-size:cover;
+  background-position: center;
+  min-height: 95vh;
+  position: relative;
+}
 div.contents.row {
   h2 {
     @include boxBase(20px 0, 0);
@@ -226,6 +233,7 @@ div.contents.row {
   div.content_post {
     @include boxBase(20px 0 ,30px);
     position: relative;
+    cursor: pointer;
     height: 400px;
     color: #fff;
     background-size: cover;
