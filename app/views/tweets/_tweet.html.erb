@@ -1,3 +1,16 @@
+<div class="col-12 col-md-6 col-lg-4">
+        <div class="card border-dark mb-3">
+          <div class="card-header p-0">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe width="560" height="315" src="<%= tweet.image %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>     
+            </div>
+          </div>
+          <div class="card-body text-dark movie-body">
+            <p class="card-text"><%= tweet.text %></p>
+          </div>
+        </div>
+      </div>
+
 <div class="content_post" style="background-image: url(<%= tweet.image %>);">
   <div class="more">
     <span><%= image_tag 'arrow_top.png' %></span>
