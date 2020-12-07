@@ -231,6 +231,7 @@ div.contents.row {
   font-family: "游ゴシック", "YuGothic";
   }
   div.content_post {
+    cursor: pointer;
     @include boxBase(20px 0 ,30px);
     position: relative;
     cursor: pointer;
