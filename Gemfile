@@ -20,6 +20,8 @@ gem 'compass-rails', '3.1.0'
 gem 'sprockets', '3.7.2'
 gem 'devise'
 
+gem 'rails-i18n', '~> 5.1' 
+
 gem 'kaminari'
 
 group :development, :test do

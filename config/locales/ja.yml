@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+      # ***** 以下を追加 *****
+      like: いいね
+      # ***** 以上を追加 *****
+    attributes:
+      post:
+        content: 内容
+        user: ユーザー
+      # ***** 以下を追加 *****
+      like:
+        user: ユーザー
+        post: 投稿
+      # ***** 以上を追加 *****
+  time:
+    formats:
+      default: "%Y年%-m月%-d日(%a) %-H時%-M分%-S秒"
