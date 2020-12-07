@@ -5,11 +5,13 @@
 <!-- ***** 以下を追加 ***** -->
 <p>
   <% if @tweet.liked_by?(current_user) %>
-    <%# 「いいね！」済み %>
-    ★
+    <%# 「いいね！」済みを解除する %>
+    <%= link_to "★",  tweet_likes_path(@tweet) ,method: :delete %>
+    
   <% else %>
-    <%# 「いいね」していない %>
-    ☆
+   <%= link_to "☆", tweet_likes_path(@tweet), method: :post %>
+    <%# 「いいね」していない（クリックすると「いいね！」にする) %>
+    
   <% end %>
 </p>
 
