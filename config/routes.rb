@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index]
   resources :tweets do 
     resources :comments, only: :create
+    resources :likes only: [:create, :destroy]
     collection do 
       get 'search'
     end
