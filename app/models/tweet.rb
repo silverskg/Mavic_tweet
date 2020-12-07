@@ -6,7 +6,7 @@ class Tweet < ApplicationRecord
 
   has_many :liked_tweets, through: :likes, source: :user
 
-  def liked_by?(user)
+  def liked_by?(current_user)
     likes.find_by(user_id: user.id).present?
   end
   

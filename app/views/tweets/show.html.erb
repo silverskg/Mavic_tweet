@@ -1,3 +1,18 @@
+<h1>投稿詳細</h1>
+<p>【メールアドレス】 <%= @tweet.user.email %></p>
+<p>【内容】 <%= @tweet.text %></p>
+<p>【作成日時】 <%= @tweet.created_at %></p>
+<!-- ***** 以下を追加 ***** -->
+<p>
+  <% if @tweet.liked_by?(current_user) %>
+    <%# 「いいね！」済み %>
+    ★
+  <% else %>
+    <%# 「いいね」していない %>
+    ☆
+  <% end %>
+</p>
+
 <div class="contents row">
   <div class="content_post" style="background-image: url(<%= @tweet.image %>);">
   <% if user_signed_in? && current_user.id == @tweet.user_id %>
