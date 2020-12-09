@@ -11,7 +11,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-    Tweet.create(tweet_params)
+    Tweet.create!(tweet_params)
   end
 
   def show
@@ -21,7 +21,6 @@ class TweetsController < ApplicationController
   end
 
   def search
-    # binding.pry
     @tweets = Tweet.search(params[:keyword]).page(params[:page]).per(2)
   end
 
@@ -45,7 +44,6 @@ class TweetsController < ApplicationController
   end
 
   def set_tweet
-    # binding.pry
     @tweet = Tweet.find(params[:id])
   end
 
