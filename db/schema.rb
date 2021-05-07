@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2021_05_07_060816) do
 
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "tweet_id"
     t.text "text"
@@ -39,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_05_07_060816) do
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
