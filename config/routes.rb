@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :comments, only: :create
     resource :likes, only: [:create, :destroy]
     collection do 
-      get 'search'
+      get :search
     end
   end
 end

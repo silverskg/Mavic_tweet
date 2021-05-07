@@ -2,14 +2,12 @@
 <p>【メールアドレス】 <%= @tweet.user.email %></p>
 <p>【内容】 <%= @tweet.text %></p>
 <p>【作成日時】 <%= @tweet.created_at %></p>
-<!-- ***** 以下を追加 ***** -->
-<p>
   <% if @tweet.liked_by?(current_user) %>
     <%# 「いいね！」済みを解除する %>
     <%= link_to "★",  tweet_likes_path(@tweet) ,method: :delete %>
     
   <% else %>
-   <%= link_to "☆", tweet_likes_path(@tweet), method: :post %>
+    <%= link_to "☆", tweet_likes_path(@tweet), method: :post %>
     <%# 「いいね」していない（クリックすると「いいね！」にする) %>
     
   <% end %>
