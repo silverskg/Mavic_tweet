@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_23_110111) do
+ActiveRecord::Schema.define(version: 2021_05_07_060816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,12 +23,23 @@ ActiveRecord::Schema.define(version: 2020_10_23_110111) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tweets", force: :cascade do |t|
-    t.string "text"
-    t.text "image"
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "tweet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.index ["tweet_id"], name: "index_likes_on_tweet_id"
+    t.index ["user_id", "tweet_id"], name: "index_likes_on_user_id_and_tweet_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "text"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,4 +55,7 @@ ActiveRecord::Schema.define(version: 2020_10_23_110111) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "likes", "tweets"
+  add_foreign_key "likes", "users"
+  add_foreign_key "tweets", "users"
 end
